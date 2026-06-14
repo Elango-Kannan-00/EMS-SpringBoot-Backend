@@ -362,7 +362,7 @@ PUT /employee/1/salary
 ### Clone Repository
 
 ```bash
-git clone https://github.com/your-username/employee-management.git
+git clone https://github.com/Elango-Kannan-00/employee-management.git
 ```
 
 ### Navigate to Project
