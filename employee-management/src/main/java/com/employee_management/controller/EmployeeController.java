@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
+import jakarta.validation.Valid;
 import com.employee_management.service.EmployeeService;
 import com.employee_management.dto.EmployeeRequestDTO;
 import com.employee_management.dto.EmployeeResponseDTO;
 import com.employee_management.dto.GetEmployeeSalaryDTO;
-import com.employee_management.dto.UpdateEmployeeSalaryDTO;
+import com.employee_management.dto.SalaryRequestDTO;
+import com.employee_management.dto.UpdateSalaryResponseDTO;
 
 @RestController
 @RequestMapping("/employee")
@@ -26,43 +28,43 @@ public class EmployeeController {
 
     // HTTP POST
     @PostMapping
-    private EmployeeResponseDTO addEmployee(@RequestBody EmployeeRequestDTO request) {
+    public EmployeeResponseDTO addEmployee(@Valid @RequestBody EmployeeRequestDTO request) {
         return service.addEmployee(request);
     }
 
     // HTTP GET
     @GetMapping
-    private List<EmployeeResponseDTO> getAllEmployee() {
-        return service.getAllEmployee();
+    public List<EmployeeResponseDTO> getAllEmployee() {
+        return service.getAllEmployees();
     }
 
     // HTTP PUT
-    @PutMapping("{/id}")
-    private EmployeeResponseDTO editEmploye(@RequestBody EmployeeRequestDTO request, @PathVariable long id) {
+    @PutMapping("/{id}")
+    public EmployeeResponseDTO editEmploye(@Valid @RequestBody EmployeeRequestDTO request, @PathVariable long id) {
         return service.editEmployee(request, id);
     }
 
     // HTTP DELETE BY ID
-    @DeleteMapping
-    private String deleteById(@PathVariable long id){
+    @DeleteMapping("/{id}")
+    public String deleteById(@PathVariable long id){
         return service.deleteById(id);
     }
 
     // HTTP DELETE ALL
     @DeleteMapping
-    private String deleteAll() {
+    public String deleteAll() {
         return service.deleteAll();
     }
 
     // HTTP GET EMPLOYEE SALARY
-    @GetMapping("{/id}") 
-    private GetEmployeeSalaryDTO getSalary(@RequestBody EmployeeRequestDTO request, @PathVariable long id) {
-        return service.getEmployeeSalary(request, id);
+    @GetMapping("/{id}/salary") 
+    public GetEmployeeSalaryDTO getSalary(@PathVariable long id) {
+        return service.getEmployeeSalary(id);
     }
 
     // HTTP EDIT EMPLOYEE SALARY
-    @PutMapping("{/id}") 
-    private UpdateEmployeeSalaryDTO editSalary(@RequestBody EmployeeRequestDTO requestDTO, @PathVariable long id) {
+    @PutMapping("/{id}/salary") 
+    public UpdateSalaryResponseDTO editSalary(@Valid @RequestBody SalaryRequestDTO request, @PathVariable long id) {
         return service.editSalary(request, id);
     }
 }
