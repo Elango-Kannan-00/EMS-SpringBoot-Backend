@@ -1,19 +1,26 @@
 package com.employee_management.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Employee {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String fullname;
     private String empId;
     private String dob;
     private String gender;
     private String emailId;
-    private double phoneNo;
+    private long phoneNo;
     private double salary;
+
+    // Default constructor.
+    public Employee() {}
 
     // Parameterized Constructor. 
     public Employee(long id, 
@@ -22,7 +29,7 @@ public class Employee {
                     String dob, 
                     String gender, 
                     String emailId, 
-                    double phoneNo,
+                    long phoneNo,
                     double salary) {
         this.id = id;
         this.fullname = fullname;
@@ -83,11 +90,11 @@ public class Employee {
         this.emailId = emailId;
     }
 
-    public double getPhoneNo() {
+    public long getPhoneNo() {
         return phoneNo;
     }
 
-    public void setPhoneNo(double phoneNo) {
+    public void setPhoneNo(long phoneNo) {
         this.phoneNo = phoneNo;
     }
 
