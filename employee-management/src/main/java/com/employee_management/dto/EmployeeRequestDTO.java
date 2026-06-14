@@ -1,24 +1,36 @@
 package com.employee_management.dto;
 
-public class EmployeeRequestDTO {
-    private long id;
-    private String fullName;
-    private String empId;
-    private String dob;
-    private String gender;
-    private String emailId;
-    private double phoneNo;
-    private double salary;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
+public class EmployeeRequestDTO {
+    private Long id;
+    @NotBlank
+    private String fullName;
+    @NotBlank
+    private String empId;
+    @NotBlank
+    private String dob;
+    @NotBlank
+    private String gender;
+    @NotBlank
+    private String emailId;
+    @NotNull
+    private Long phoneNo;
+    @NotNull
+    private Double salary;
+
+    public EmployeeRequestDTO() {}
+    
     // Parameterized Constructor. 
-    public EmployeeRequestDTO(long id, 
+    public EmployeeRequestDTO(Long id, 
                     String fullName, 
                     String empId, 
                     String dob, 
                     String gender, 
                     String emailId, 
-                    double phoneNo,
-                    double salary) {
+                    Long phoneNo,
+                    Double salary) {
         this.id = id;
         this.fullName = fullName;
         this.empId = empId;
@@ -30,20 +42,20 @@ public class EmployeeRequestDTO {
     }
 
     // Getters and Setters.
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getFullname() {
+    public String getFullName() {
         return fullName;
     }
 
-    public void setFullname(String fullname) {
-        this.fullName = fullname;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getEmpId() {
@@ -78,19 +90,19 @@ public class EmployeeRequestDTO {
         this.emailId = emailId;
     }
 
-    public double getPhoneNo() {
+    public Long getPhoneNo() {
         return phoneNo;
     }
 
-    public void setPhoneNo(double phoneNo) {
+    public void setPhoneNo(Long phoneNo) {
         this.phoneNo = phoneNo;
     }
 
-    public double getSalary() {
+    public Double getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(Double salary) {
         this.salary = salary;
     }
 }

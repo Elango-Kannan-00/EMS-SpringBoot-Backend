@@ -3,14 +3,7 @@ package com.employee_management.dto;
 public class EmployeeResponseDTO {
     private String empId;
     private String fullName;
-    private String phoneNo;
-
-    // Parameterized Constructor.
-    public EmployeeResponseDTO(String empId, String fullName, String phoneNo) {
-        this.empId = empId;
-        this.fullName = fullName;
-        this.phoneNo = phoneNo;
-    }
+    private Long phoneNo;
 
     // Getters and Setters.
     public String getEmpId() {
@@ -29,11 +22,11 @@ public class EmployeeResponseDTO {
         this.fullName = fullName;
     }
 
-    public String getPhoneNo() {
+    public Long getPhoneNo() {
         return phoneNo;
     }
 
-    public void setPhoneNo(String phoneNo) {
+    public void setPhoneNo(Long phoneNo) {
         this.phoneNo = phoneNo;
     }
 
