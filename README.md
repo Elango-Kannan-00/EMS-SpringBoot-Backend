@@ -407,19 +407,6 @@ Import the following requests:
 
 ---
 
-## Future Enhancements
-
-* Swagger/OpenAPI Documentation
-* Global Exception Handling
-* Authentication & Authorization using Spring Security
-* Pagination & Sorting
-* Search Employee by Name
-* Email Notifications
-* Docker Support
-* Unit & Integration Testing
-
----
-
 ## Author
 
 Elango Kannan
